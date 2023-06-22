@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<title>CSS Hover Element - Selector OR Child Combinator</title>
+		<style >
+			#MainUL li ul li{display:none;}
+			#MainUL li:hover ul li{display:block;}
+			#MainUL li:hover ul li ul li{display:none;}
+			#MainUL li ul li:hover ul li{display:block;}
+			#MainUL li ul li:hover ul li ul li{display:none;}
+			#MainUL li ul li ul li:hover ul li{display:block;}
+		</style>
+		
+	</head>
+	<body>
+		
+		<ul id="MainUL">
+			<li>menu
+				<ul>
+					<li>snacks
+						<ul>
+							<li style="color:red ;">biscuits
+							<ul>
+								<li>monaco</li>
+								<li>Parle-g</li>
+								<li>bourbon</li>
+							</ul></li>
+							<li style="color:rgb(52, 34, 156) ;">sandwich
+								<ul>
+									<li>Aloo mutter sandwich</li>
+									<li>cheese chutney sandwich</li>
+									<li>butter jam sandwich</li>
+								</ul></li>
+							</li>
+						</ul>
+					</li>
+					<li>beverages 
+						<ul>
+							<li>tea</li>
+							<li>coffee</li>	
+							<li>pepsi</li>
+							<li>smoothie</li>
+							<li>lemonade</li>
+							<li>coconut water</li>									
+						</ul>
+					</li>
+					
+					
+					

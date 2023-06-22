@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form</title>
+</head>
+<style>
+    h2{
+        text-align: center;
+        
+    }
+    form{
+      align-items: center;
+      border: 1px solid black;
+      padding: 20px;
+      width: 400px;
+      margin: 0 auto;
+      display: flexbox;
+      background-color: bisque;
+    }
+    inpur{
+        align-items: center;
+        margin: 0 auto;
+        padding: 20px;
+        width: 400px;
+        text-align: center;
+    }
+</style>
+<body>
+  
+  <h2>Registration Form</h2>
+  <div class="FORM">
+  <form action="process_registration.php" method="post" enc type="multipart/form-data">
+    <label for="first_name">First Name:</label><br>
+    <input type="text" id="first_name" name="first_name" required><br><br>
+
+    <label for="middle_name">Middle Name:</label><br>
+    <input type="text" id="middle_name" name="middle_name"><br><br>
+
+    <label for="last_name">Last Name:</label><br>
+    <input type="text" id="last_name" name="last_name" required><br><br>
+
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" name="username" required><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="contact">Contact:</label><br>
+    <select id="gender" name="gender" required>
+        <option value="+91">India +91</option>
+        <option value="+1">United States +1</option>
+        <option value="+2">France +33</option>
+       </select>
+       <input type="Contact" id="Contact" name="Contact" required>
+       <br><br>
+
+    <label for="current_address">Current Address:</label><br>
+    <textarea id="current_address" name="current_address" required></textarea><br><br>
+
+    <label for="gender">Gender:</label><br>
+    <input type="radio" id="male" name="gender" value="male">
+    <label for="male">Male</label><br>
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">Female</label><br>
+    <input type="radio" id="other" name="gender" value="other">
+    <label for="other">Other</label><br><br>
+
+    <label for="skills">Skills:</label><br>
+    <textarea id="skills" name="skills" required></textarea><br><br>
+
+    <label for="dob">Date of Birth:</label><br>
+    <input type="date" id="dob" name="dob" required><br><br>
+
+
+    <label for="security_question">security question:</label><br>
+    <select id="security_question" name="Security Question:" required><br>
+    <option value="what is your Birth place">what is your DOB place </option>
+    <option value="What is the name of your high school">what is the name of your high school</option>
+    <option value="what is your favorite food">what is your favorite food</option>
+    </select><br>
+    <input type="security_question" id="security_question" name="security_question" required>
+    <br><br>
+
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password" required><br><br>
+
+    <label for="confirm_password">Confirm Password:</label><br>
+    <input type="password" id="confirm_password" name="confirm_password" required><br><br>
+
+    <label for="query">Query:</label><br>
+    <textarea id="query" name="query"></textarea><br><br>
+
+
+    <label for="file">File Upload:</label><br>
+    <input type="file" id="file" name="file"><br><br>
+
+    <input type="checkbox" id="terms_conditions" name="terms_conditions" required>
+    <label for="terms_conditions">I agree to the terms and conditions</label><br><br>
+
+    <input type="submit" value="Submit">
+</div>
+  </form>
+</body>
+</html>
+<script>
+  let saveFile = () => {
+         // Get the data from each element on the form.
+         const firstName = document.getElementById("first_name");
+         const lastName = document.getElementById("middel_name");
+         const middleName = document.getElementById("last_name");
+         const username = document.getElementById("username");
+         const email = document.getElementById("email");
+         const contact= document.getElementById("contact");
+         const gender = document.getElementById("gender");
+         const skills = document.getElementById("skills");
+         const dob = document.getElementById("dob");
+         const security_question = document.getElementById("security_question");
+         const favfood = document.getElementById("FavFood");
+         const hobby = document.getElementById("Hobby");
+         const password = document.getElementById("Password");
+         const confirmpassword = document.getElementById("CPassword");
+         const address = document.getElementById("Address");
+         const pincode = document.getElementById("Pincode");
+         const tc = document.getElementById("T&C");
+         const file = document.getElementById("File");
+
+         // This variable stores all the data.
+         let data = "\r First Name: " + firstName.value + " \r\n " + "Middle Name: " + middleName.value + " \r\n " + "Last Name: " + lastName.value + " \r\n " + "Email: " + email.value + " \r\n " + "Phone: " + phone.value + " \r\n " + "Gender: " + gender.value + " \r\n " + "Age: " + age.value + " \r\n " + "Date of Birth: " + dob.value + " \r\n " + "Question 1: " + favfood.value + " \r\n " + "Hobby: " + hobby.value + " \r\n " + "Password: " + password.value + " \r\n " + "Confirm Password: " + confirmpassword.value + " \r\n " + "Address: " + address.value + " \r\n " + "Pincode: " + pincode.value + " \r\n " + "T&C: " + tc.value + " \r\n " + "File: " + file.value;
+         console.log(data); //printing form data into the console
+         // Convert the text to BLOB.
+         const textToBLOB = new Blob([data], { type: "text/plain" });
+         var filename = new Date();
+         var month =new Date(); //months from 1-12
+         month = month.getMonth();
+
+         var day = new Date();
+         var day = day.getUTCDate();
+
+         var year = new Date();
+         var year = year.getUTCFullYear();
+
+         newdate = year + "/" + month + "/" + day;
+         const sFileName = filename; // The file to save the data.
+
+         let newLink = document.createElement("a");
+         newLink.download = new Date();
+
+         if (window.webkitURL != null) {
+             newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+         } else {
+             newLink.href = window.URL.createObjectURL(textToBLOB);
+             newLink.style.display = "none";
+             document.body.appendChild(newLink);
+         }
+
+         newLink.click();
+     };
+</script>
+registration form.html
+Displaying registration form.html.
